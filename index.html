@@ -1,15 +1,213 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>INTRO API CANVAS</title>
 
-  <link rel="stylesheet" href="styles/styles.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Canvas + Bootstrap Cards</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/styles.css" />
 </head>
+
 <body>
-  <canvas id="canvas" width="400" height="400"></canvas>
+  <header class="py-5">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row align-items-md-end justify-content-between gap-3">
+        <div>
+          <h1 class="display-6 fw-bold mb-1">Intro API Canvas</h1>
+          <p class="text-secondary mb-0">Ejemplos en tarjetas Bootstrap, mismo tamaño, estilo profesional.</p>
+        </div>
+        <button id="btnRedibujar" class="btn btn-light btn-lg px-4 shadow-sm">
+          Redibujar todo
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="pb-5">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- 1 -->
+        <div class="col-12 col-md-6 col-xl-4">
+          <div class="card example-card h-100 card-grad-1">
+            <div class="card-body">
+              <div class="d-flex align-items-start justify-content-between mb-3">
+                <div>
+                  <h5 class="card-title mb-1">Forma rectangular</h5>
+                  <p class="card-subtitle text-white-50 small mb-0">fillRect, clearRect, strokeRect</p>
+                </div>
+                <span class="badge rounded-pill badge-soft">01</span>
+              </div>
+
+              <div class="canvas-shell">
+                <canvas id="cv_rect" class="example-canvas" aria-label="Forma rectangular"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="col-12 col-md-6 col-xl-4">
+          <div class="card example-card h-100 card-grad-2">
+            <div class="card-body">
+              <div class="d-flex align-items-start justify-content-between mb-3">
+                <div>
+                  <h5 class="card-title mb-1">Dibujar trazados</h5>
+                  <p class="card-subtitle text-white-50 small mb-0">beginPath, moveTo, lineTo, fill</p>
+                </div>
+                <span class="badge rounded-pill badge-soft">02</span>
+              </div>
+
+              <div class="canvas-shell">
+                <canvas id="cv_trazados" class="example-canvas" aria-label="Dibujar trazados"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="col-12 col-md-6 col-xl-4">
+          <div class="card example-card h-100 card-grad-3">
+            <div class="card-body">
+              <div class="d-flex align-items-start justify-content-between mb-3">
+                <div>
+                  <h5 class="card-title mb-1">Mover la pluma</h5>
+                  <p class="card-subtitle text-white-50 small mb-0">arc + composición con trazos</p>
+                </div>
+                <span class="badge rounded-pill badge-soft">03</span>
+              </div>
+
+              <div class="canvas-shell">
+                <canvas id="cv_pluma" class="example-canvas" aria-label="Mover la pluma"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="col-12 col-md-6 col-xl-4">
+          <div class="card example-card h-100 card-grad-4">
+            <div class="card-body">
+              <div class="d-flex align-items-start justify-content-between mb-3">
+                <div>
+                  <h5 class="card-title mb-1">Líneas</h5>
+                  <p class="card-subtitle text-white-50 small mb-0">fill, closePath, stroke</p>
+                </div>
+                <span class="badge rounded-pill badge-soft">04</span>
+              </div>
+
+              <div class="canvas-shell">
+                <canvas id="cv_lineas" class="example-canvas" aria-label="Líneas"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="col-12 col-md-6 col-xl-4">
+          <div class="card example-card h-100 card-grad-5">
+            <div class="card-body">
+              <div class="d-flex align-items-start justify-content-between mb-3">
+                <div>
+                  <h5 class="card-title mb-1">Arcos</h5>
+                  <p class="card-subtitle text-white-50 small mb-0">grid de arc con fill/stroke</p>
+                </div>
+                <span class="badge rounded-pill badge-soft">05</span>
+              </div>
+
+              <div class="canvas-shell">
+                <canvas id="cv_arcos" class="example-canvas" aria-label="Arcos"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="col-12 col-md-6 col-xl-4">
+          <div class="card example-card h-100 card-grad-6">
+            <div class="card-body">
+              <div class="d-flex align-items-start justify-content-between mb-3">
+                <div>
+                  <h5 class="card-title mb-1">Curvas cuadráticas</h5>
+                  <p class="card-subtitle text-white-50 small mb-0">quadraticCurveTo (mejorado)</p>
+                </div>
+                <span class="badge rounded-pill badge-soft">06</span>
+              </div>
+
+              <div class="canvas-shell">
+                <canvas id="cv_quad" class="example-canvas" aria-label="Curvas cuadráticas"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="col-12 col-md-6 col-xl-4">
+          <div class="card example-card h-100 card-grad-7">
+            <div class="card-body">
+              <div class="d-flex align-items-start justify-content-between mb-3">
+                <div>
+                  <h5 class="card-title mb-1">Curvas cúbicas Bézier</h5>
+                  <p class="card-subtitle text-white-50 small mb-0">bezierCurveTo + fill</p>
+                </div>
+                <span class="badge rounded-pill badge-soft">07</span>
+              </div>
+
+              <div class="canvas-shell">
+                <canvas id="cv_bezier" class="example-canvas" aria-label="Curvas cúbicas Bézier"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="col-12 col-md-6 col-xl-4">
+          <div class="card example-card h-100 card-grad-8">
+            <div class="card-body">
+              <div class="d-flex align-items-start justify-content-between mb-3">
+                <div>
+                  <h5 class="card-title mb-1">Rectángulos redondeados</h5>
+                  <p class="card-subtitle text-white-50 small mb-0">arcTo + composición</p>
+                </div>
+                <span class="badge rounded-pill badge-soft">08</span>
+              </div>
+
+              <div class="canvas-shell">
+                <canvas id="cv_round" class="example-canvas" aria-label="Rectángulos redondeados"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="col-12 col-md-6 col-xl-4">
+          <div class="card example-card h-100 card-grad-9">
+            <div class="card-body">
+              <div class="d-flex align-items-start justify-content-between mb-3">
+                <div>
+                  <h5 class="card-title mb-1">Path2D</h5>
+                  <p class="card-subtitle text-white-50 small mb-0">Path2D + stroke/fill</p>
+                </div>
+                <span class="badge rounded-pill badge-soft">09</span>
+              </div>
+
+              <div class="canvas-shell">
+                <canvas id="cv_path2d" class="example-canvas" aria-label="Path2D"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
 
   <script src="js/main.js"></script>
 </body>
+
 </html>
